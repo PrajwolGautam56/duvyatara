@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server";import { cookies } from "next/headers";import { connectDb,TractorModel } from "@/lib/db";import { tractors } from "@/lib/data";import { verifySession } from "@/lib/auth";
+export async function HEAD(){const token=(await cookies()).get("divyatara_admin")?.value;return new NextResponse(null,{headers:{"x-admin":String(await verifySession(token))}})}
+export async function GET(){const db=await connectDb();return NextResponse.json(db?await TractorModel.find().lean():tractors)}
+export async function POST(req:Request){const token=(await cookies()).get("divyatara_admin")?.value;if(!await verifySession(token))return NextResponse.json({error:"Unauthorized"},{status:401});if(!await connectDb())return NextResponse.json({error:"MongoDB is not configured"},{status:503});return NextResponse.json(await TractorModel.create(await req.json()),{status:201})}

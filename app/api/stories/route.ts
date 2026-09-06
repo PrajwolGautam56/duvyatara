@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";import { cookies } from "next/headers";import { connectDb,StoryModel } from "@/lib/db";import { stories } from "@/lib/data";import { verifySession } from "@/lib/auth";
+export async function GET(){const db=await connectDb();return NextResponse.json(db?await StoryModel.find().sort({createdAt:-1}).lean():stories)}
+export async function POST(req:Request){const t=(await cookies()).get("divyatara_admin")?.value;if(!await verifySession(t))return NextResponse.json({error:"Unauthorized"},{status:401});if(!await connectDb())return NextResponse.json({error:"MongoDB is not configured"},{status:503});return NextResponse.json(await StoryModel.create(await req.json()),{status:201})}
