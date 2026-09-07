@@ -3,6 +3,10 @@ import { ArrowRight, ShieldCheck, Wrench, MapPin, BadgeCheck, Star } from "lucid
 import TractorCard from "@/components/TractorCard";
 import { getStories, getTractors } from "@/lib/content";
 
+// Content is database-backed in production, so do not query MongoDB while the
+// deployment provider is compiling the application.
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const tractors = await getTractors();
   const stories = await getStories();

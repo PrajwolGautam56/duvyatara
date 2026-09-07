@@ -2,10 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Check, Gauge, Cog, Tractor as TractorIcon } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
-import { tractors } from "@/lib/data";
 import { getTractors } from "@/lib/content";
 
-export function generateStaticParams(){ return tractors.map(t=>({slug:t.slug})); }
+export const dynamic = "force-dynamic";
 export default async function Page({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;
   const t=(await getTractors()).find(x=>x.slug===slug);
