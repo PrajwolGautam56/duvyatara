@@ -27,6 +27,8 @@ Requires Node.js 20.9 or newer.
 3. Run `npm install`.
 4. Run `npm run dev`.
 
+Run `npm run seed` once to copy the bundled tractor models and farmer stories into MongoDB. The command is idempotent and updates matching records without creating duplicates.
+
 The website works with the migrated seed content when MongoDB is not configured. Database writes and form submissions become active after `MONGODB_URI` is supplied.
 
 ## Environment values still needed
