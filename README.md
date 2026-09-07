@@ -23,7 +23,7 @@ Converted from the Hostinger Horizons export into a Next.js App Router applicati
 Requires Node.js 20.9 or newer.
 
 1. Copy `.env.example` to `.env.local`.
-2. Add a secure admin password/session secret. MongoDB and Cloudinary can be added later.
+2. Add a secure admin session secret. MongoDB and Cloudinary can be added later.
 3. Run `npm install`.
 4. Run `npm run dev`.
 
@@ -35,8 +35,6 @@ The website works with the migrated seed content when MongoDB is not configured.
 - `CLOUDINARY_CLOUD_NAME`
 - `CLOUDINARY_API_KEY`
 - `CLOUDINARY_API_SECRET`
-- `ADMIN_EMAIL`
-- `ADMIN_PASSWORD`
 - `ADMIN_SESSION_SECRET`
 - `NEXT_PUBLIC_WHATSAPP_NUMBER`
 
