@@ -4,6 +4,12 @@ export type Tractor = {
   images?: string[]; description: string; specs: string[]; featured?: boolean;
 };
 
+export type Story = {
+  _id?: string; farmer_name: string; caption: string; description: string;
+  tractor_model?: string; rating: number; media_url?: string;
+  media_type?: "image" | "video"; video_url?: string; featured?: boolean;
+};
+
 export const tractors: Tractor[] = [
   { slug: "pt-euro-45-e9", brand: "Powertrac", name: "PT-EURO 45 E9", hp: "45 HP", drive: "2WD", engine: "3-Cylinder, 2761 CC", lift: "2000 kg", gearbox: "8F + 2R", image: "https://assets.tractorjunction.com/tractor-junction/assets/images/upload/powertrac-euro-45-plus-1690880480.webp", description: "Reliable and efficient for medium-sized farms, with excellent fuel economy.", specs: ["3-Cylinder AVL Engine", "Oil Immersed Brakes", "Power Steering", "Diesel Saver Technology"], featured: true },
   { slug: "pt-euro-50-lm", brand: "Powertrac", name: "PT-EURO 50 LM", hp: "50 HP", drive: "2WD", engine: "3-Cylinder, 2761 CC", lift: "2000 kg", gearbox: "8F + 2R", image: "https://assets.tractorjunction.com/tractor-junction/assets/images/tractor-images/tractor-image-0-1740036829.webp", description: "A balanced combination of robust power and daily operating economy.", specs: ["198.5 Nm Max Torque", "42.5 HP PTO", "Diesel Saver Technology", "Power Steering"], featured: true },
@@ -22,7 +28,7 @@ export const branches = [
   { name: "Kawasoti", location: "Kawasoti, Nawalparasi", phones: ["9802624192"] }
 ];
 
-export const stories = [
+export const stories: Story[] = [
   { farmer_name: "Ram Bahadur Thapa", caption: "Increased my yield by 40% this season.", description: "The Powertrac Euro 50 has been a dependable partner for my farm.", tractor_model: "Powertrac Euro 50 LM", rating: 5 },
   { farmer_name: "Sita Chaudhary", caption: "Reliable service and excellent power.", description: "Divya Tara helped us select the right Farmtrac and supported us after purchase.", tractor_model: "Farmtrac 605 EPI", rating: 5 }
 ];

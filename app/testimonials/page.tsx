@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import TestimonialsGrid from "@/components/TestimonialsGrid";
+import { getStories } from "@/lib/content";
+export const metadata:Metadata={title:"Customer Testimonials",description:"Customer experiences with Divya Tara Enterprises, Powertrac and Farmtrac tractors."};
+export const dynamic="force-dynamic";
+export default async function Page(){const stories=(await getStories()).filter(s=>s.featured!==false);return <><section className="simple-hero"><div className="container"><p className="eyebrow gold">CUSTOMER TESTIMONIALS</p><h1>Real experiences.<br/>Trusted partnerships.</h1><p>Hear directly from customers and farmers who chose Divya Tara for their tractors, service and support.</p></div></section><section className="section soft"><div className="container"><div className="section-head"><div><p className="eyebrow green">STORIES FROM THE FIELD</p><h2>What our customers say</h2><p>Written reviews, photos and video testimonials managed directly by our team.</p></div></div>{stories.length?<TestimonialsGrid stories={stories}/>:<div className="empty-testimonials"><h2>Customer stories coming soon</h2><p>Our first photo and video testimonials will appear here.</p></div>}</div></section></>}

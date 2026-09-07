@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Wrench, MapPin, BadgeCheck, Star } from "lucide-react";
+import { ArrowRight, ShieldCheck, Wrench, MapPin, BadgeCheck } from "lucide-react";
 import TractorCard from "@/components/TractorCard";
+import TestimonialsGrid from "@/components/TestimonialsGrid";
 import { getStories, getTractors } from "@/lib/content";
 
 // Content is database-backed in production, so do not query MongoDB while the
@@ -21,7 +22,7 @@ export default async function HomePage() {
 
     <section className="section dark"><div className="container"><div className="section-head light"><div><p className="eyebrow gold">WHY DIVYA TARA</p><h2>Support that stays with you</h2></div></div><div className="feature-grid"><div><BadgeCheck/><h3>Authorized Dealer</h3><p>Genuine Escorts Kubota tractors with valid manufacturer support.</p></div><div><Wrench/><h3>Expert Service</h3><p>Skilled technicians, regular maintenance and dependable repairs.</p></div><div><ShieldCheck/><h3>Genuine Parts</h3><p>Quality components that protect performance and tractor life.</p></div><div><MapPin/><h3>Nearby Network</h3><p>Five branches serving farmers across Lumbini Province.</p></div></div></div></section>
 
-    <section className="section stories"><div className="container"><div className="section-head"><div><p className="eyebrow green">FARMER STORIES</p><h2>Success in every field</h2></div></div><div className="story-grid">{stories.map(s => <article key={s.farmer_name}><div className="stars">{Array.from({length:s.rating}).map((_,i)=><Star key={i} size={17} fill="currentColor"/>)}</div><blockquote>“{s.caption}”</blockquote><p>{s.description}</p><strong>{s.farmer_name}</strong><small>{s.tractor_model}</small></article>)}</div></div></section>
+    <section className="section stories"><div className="container"><div className="section-head"><div><p className="eyebrow green">CUSTOMER TESTIMONIALS</p><h2>Real stories from the field</h2><p>Customer reviews, photos and video experiences with Divya Tara.</p></div><Link href="/testimonials">View all testimonials <ArrowRight size={18}/></Link></div><TestimonialsGrid stories={stories.filter(s=>s.featured!==false).slice(0,4)}/></div></section>
     <section className="contact-band"><div className="container"><div><p className="eyebrow gold">LET&apos;S TALK</p><h2>Find the right tractor for your farm.</h2></div><Link className="button pale" href="/contact">Contact Us <ArrowRight size={18}/></Link></div></section>
   </>;
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
-const links = [["Home", "/"], ["About Us", "/about"], ["Powertrac", "/powertrac"], ["Farmtrac", "/farmtrac"], ["Branches", "/branches"], ["Contact", "/contact"]];
+const links = [["Home", "/"], ["About Us", "/about"], ["Powertrac", "/powertrac"], ["Farmtrac", "/farmtrac"], ["Branches", "/branches"], ["Customer Testimonials", "/testimonials"]];
 export default function Header() {
   const [open, setOpen] = useState(false);
   return <header className="site-header">
