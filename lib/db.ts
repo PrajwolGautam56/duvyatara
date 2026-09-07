@@ -29,6 +29,13 @@ export async function connectDb() {
 const tractorSchema = new mongoose.Schema({}, { strict: false, timestamps: true });
 const enquirySchema = new mongoose.Schema({}, { strict: false, timestamps: true });
 const storySchema = new mongoose.Schema({}, { strict: false, timestamps: true });
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  passwordHash: { type: String, required: true, select: false },
+  role: { type: String, enum: ["admin", "editor"], default: "admin" },
+  active: { type: Boolean, default: true },
+}, { timestamps: true });
 export const TractorModel = mongoose.models.Tractor || mongoose.model("Tractor", tractorSchema);
 export const EnquiryModel = mongoose.models.Enquiry || mongoose.model("Enquiry", enquirySchema);
 export const StoryModel = mongoose.models.Story || mongoose.model("Story", storySchema);
+export const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
