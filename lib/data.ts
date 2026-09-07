@@ -1,7 +1,7 @@
 export type Tractor = {
   slug: string; brand: "Powertrac" | "Farmtrac"; name: string; hp: string;
   drive: string; engine: string; lift: string; gearbox: string; image: string;
-  description: string; specs: string[]; featured?: boolean;
+  images?: string[]; description: string; specs: string[]; featured?: boolean;
 };
 
 export const tractors: Tractor[] = [
