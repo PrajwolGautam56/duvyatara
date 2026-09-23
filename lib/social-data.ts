@@ -5,7 +5,7 @@ export type SocialSettings = { title: string; description: string; publicUrl: st
 export const socialDefaults: SocialSettings = {
   title: "Connect with Divya Tara",
   description: "Our official social channels and contact links, all in one place.",
-  publicUrl: "https://duvyatara.vercel.app/social",
+  publicUrl: "https://www.divyatara.com/social",
   links: [],
 };
 export function validateSocial(value: unknown): SocialSettings {

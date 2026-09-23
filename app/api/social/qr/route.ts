@@ -1,7 +1,8 @@
 import QRCode from "qrcode";
-import { getSocial } from "@/lib/social";
+import { getSocial, socialAdmin } from "@/lib/social";
 export const dynamic = "force-dynamic";
 export async function GET(req: Request) {
+  if (!await socialAdmin()) return Response.json({error:"Admin sign-in required."},{status:401,headers:{"Cache-Control":"no-store"}});
   try {
     const { publicUrl } = await getSocial();
     const query = new URL(req.url).searchParams;
