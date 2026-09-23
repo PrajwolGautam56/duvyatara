@@ -10,6 +10,7 @@ export default function Header() {
   return <header className="site-header">
     <div className="topbar"><div className="container topbar-inner">
       <div className="top-contacts"><a href="tel:+9779857034383"><Phone size={14}/> +977 9857034383</a><a href="mailto:info@divyatara.com"><Mail size={14}/> info@divyatara.com</a><span><MapPin size={14}/> Kalikanagar-10, Butwal</span></div>
+      <Link className="top-social" href="/social">Social links</Link>
       <Link className="admin-entry" href="/admin" aria-label="Team access">Team access</Link>
     </div></div>
     <div className="nav-wrap"><div className="container nav-inner">

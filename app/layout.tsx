@@ -7,6 +7,7 @@ import "./product-gallery.css";
 import "./testimonials.css";
 import "./testimonials-admin.css";
 import "./brand-collection.css";
+import "./social.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
